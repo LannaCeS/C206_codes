@@ -25,4 +25,12 @@ public class Conta {
         }
 
     }
+
+    public void sacar(float debito) throws SaldoInsuficienteException {
+        if(debito > saldo) {
+            throw new SaldoInsuficienteException("Saldo Insuficiente");
+        }else {
+            saldo -= debito;
+        }
+    }
 }

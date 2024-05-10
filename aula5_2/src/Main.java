@@ -37,6 +37,12 @@ public class Main {
             System.out.println("Cliente inválido");
         }
 
+        try {
+            cliente1.conta.sacar(1000);
+        }catch (SaldoInsuficienteException e){
+            System.out.println(e.getMessage());
+        }
+
 
         System.out.println("Executado!");
     }
