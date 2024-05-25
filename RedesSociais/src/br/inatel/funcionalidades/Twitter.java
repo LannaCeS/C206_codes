@@ -28,4 +28,9 @@ public class Twitter extends RedeSocial implements Compartilhamento{
     public void postarComentario() {
         System.out.println("Postou um comentário no Twitter!");
     }
+
+    @Override
+    public void curtirPublicacao() {
+        System.out.println("Curtiu uma publicação no Twitter!");
+    }
 }

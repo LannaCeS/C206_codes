@@ -18,7 +18,7 @@ public class Facebook extends RedeSocial implements VideoConferencia, Compartilh
         System.out.println("Compartilhou uma publicação no Facebook!");
     }
 
-    //SuperClasse
+    //Herança
     @Override
     public void postarFoto(){
         System.out.println("Postou uma foto no Facebook!");
@@ -32,5 +32,10 @@ public class Facebook extends RedeSocial implements VideoConferencia, Compartilh
     @Override
     public void postarComentario(){
         System.out.println("Postou um comentário no Facebook!");
+    }
+
+    @Override
+    public void curtirPublicacao() {
+        System.out.println("Curtiu uma publicação no Facebook!");
     }
 }

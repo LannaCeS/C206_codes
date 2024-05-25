@@ -33,4 +33,9 @@ public class GooglePlus extends RedeSocial implements VideoConferencia, Comparti
     public void postarComentario(){
         System.out.println("Postou um comentário no GooglePlus!");
     }
+
+    @Override
+    public void curtirPublicacao() {
+        System.out.println("Curtiu uma publicação no GooglePlus!");
+    }
 }

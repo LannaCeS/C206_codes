@@ -1,6 +1,6 @@
 package br.inatel.funcionalidades;
 
-public class Instagram  extends RedeSocial{
+public class Instagram extends RedeSocial{
 
     //Construtor
     public Instagram(String senha, int numAmigos) {
@@ -21,5 +21,10 @@ public class Instagram  extends RedeSocial{
     @Override
     public void postarComentario() {
         System.out.println("Postou um comentário no Instagram!");
+    }
+
+    @Override
+    public void curtirPublicacao() {
+        System.out.println("Curtiu uma publicação no Instagram!");
     }
 }

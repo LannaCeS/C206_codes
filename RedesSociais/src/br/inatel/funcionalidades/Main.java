@@ -1,13 +1,12 @@
 package br.inatel.funcionalidades;
 
+import br.inatel.exceptions.NuloException;
 import br.inatel.exceptions.SemCompartilhamentoException;
-
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
-        //variáveis
+        //variáveis de conferência
         boolean compartilhar = false;
         boolean postVid = false;
         boolean postFoto = false;
@@ -16,22 +15,15 @@ public class Main {
         boolean curtir = false;
 
         //Instâncias
+        Usuario user;
+
         RedeSocial face = new Facebook("senha1", 270);
         RedeSocial googlePlus = new GooglePlus("senha2", 50);
-        RedeSocial twitter = new Twitter("senha3", 700);
-        RedeSocial instagram = new Instagram("senha4", 1040);
-
-        Usuario user;
-        Usuario user2;
 
         RedeSocial [] redesSociais = new RedeSocial[4];
-        RedeSocial [] redeSocials = new RedeSocial[2];
 
         redesSociais[0] = face;
         redesSociais[1] = googlePlus;
-
-        //redeSocials[0] = twitter;
-        redeSocials[0] = instagram;
 
         try {
             user = new Usuario(redesSociais);
@@ -40,22 +32,24 @@ public class Main {
 
             System.out.println("Nome: " + user.getNome());
             System.out.println("Email: " +user.getEmail());
+            System.out.println("--------------------------------");
             for(RedeSocial redes: user.redesSocials){
-                try {
+                if(redes!=null) {
                     System.out.println("Amigos: " + redes.numAmigos);
                     int count = 0;
                     {
-                        if (!postVid && count < 3) {
+                        //garantindo que uma rede social não executará uma ação já feita
+                        if (!postVid) {
                             redes.postarVideo();
                             postVid = true;
                             count++;
                         }
-                        if (!postComment && count < 3) {
+                        if (!postComment) {
                             redes.postarComentario();
                             postComment = true;
                             count++;
                         }
-                        if (!postFoto && count < 3) {
+                        if (!postFoto) {
                             redes.postarFoto();
                             postFoto = true;
                             count++;
@@ -95,92 +89,17 @@ public class Main {
                             count++;
                         }
                     }
-                }catch (NullPointerException e){
-                    //Unchecked exception
-                    System.out.println(e.getMessage());
+                    System.out.println("--------------------------------");
                 }
-
-                System.out.println("--------------------------------");
             }
         }catch (SemCompartilhamentoException e){
             //Checked exception
             System.out.println(e.getMessage());
+        }catch (NuloException ne){
+            //Unchecked exception
+            System.out.println(ne.getMessage());
         }
 
         System.out.println();
-
-        /*try {
-            user2 = new Usuario(redeSocials);
-            user2.setNome("Robbie");
-            user2.setEmail("robbie2004@email.com");
-
-            System.out.println("Nome: " +user2.getNome());
-            System.out.println("Email: " +user2.getEmail());
-            for(RedeSocial redes: user2.redesSocials){
-                try {
-                    System.out.println("Amigos: " + redes.numAmigos);
-                    int count = 0;
-                    {
-                        if (!postVid && count < 3) {
-                            redes.postarVideo();
-                            postVid = true;
-                            count++;
-                        }
-                        if (!postComment && count < 3) {
-                            redes.postarComentario();
-                            postComment = true;
-                            count++;
-                        }
-                        if (!postFoto && count < 3) {
-                            redes.postarFoto();
-                            postFoto = true;
-                            count++;
-                        }
-                        if (!curtir && count < 3) {
-                            redes.curtirPublicacao();
-                            curtir = true;
-                            count++;
-                        }
-                    }
-                    if (redes instanceof Facebook) {
-                        if (!compartilhar && count < 3) {
-                            ((Facebook) redes).compartilhar();
-                            compartilhar = true;
-                            count++;
-                        }
-                        if (!stream && count < 3) {
-                            ((Facebook) redes).fazStreaming();
-                            stream = true;
-                            count++;
-                        }
-                    } else if (redes instanceof GooglePlus) {
-                        if (!compartilhar && count < 3) {
-                            ((GooglePlus) redes).compartilhar();
-                            compartilhar = true;
-                            count++;
-                        }
-                        if (!stream && count < 3) {
-                            ((GooglePlus) redes).fazStreaming();
-                            stream = true;
-                            count++;
-                        }
-                    } else if (redes instanceof Twitter) {
-                        if (!compartilhar && count < 3) {
-                            ((Twitter) redes).compartilhar();
-                            compartilhar = true;
-                            count++;
-                        }
-                    }
-                }catch (NullPointerException e){
-                    //System.out.println(e.getMessage());
-                }
-                System.out.println("--------------------------------");
-            }
-
-        }catch (SemCompartilhamentoException e){
-            System.out.println(e.getMessage());
-        }
-
-         */
     }
 }
