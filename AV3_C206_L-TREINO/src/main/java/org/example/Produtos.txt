@@ -1,0 +1,16 @@
+~~~~~~~~~~~~~~~~~~
+Nome: Armario
+Tipo: Decoração
+Preço: 89,9
+~~~~~~~~~~~~~~~~~~
+Nome: Escova de dente 
+Tipo: Higiene
+Preço: 19.9
+~~~~~~~~~~~~~~~~~~
+Nome: Lâmpada
+Tipo: Decoração
+Preço: 6.6
+~~~~~~~~~~~~~~~~~~
+Nome: Coxinha
+Tipo: Comida
+Preço: 2.0
