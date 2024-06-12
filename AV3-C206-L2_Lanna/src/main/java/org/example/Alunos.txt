@@ -1,0 +1,25 @@
+~~~~~~~~~~~~~~~~~~
+Nome: Lanna
+Curso: Computação
+Matrícula: 1000
+Média: 90.05
+~~~~~~~~~~~~~~~~~~
+Nome: Túlio
+Curso: Telecomunicações
+Matrícula: 1919
+Média: 80.97
+~~~~~~~~~~~~~~~~~~
+Nome: Murilo
+Curso: Software
+Matrícula: 1900
+Média: 80.87
+~~~~~~~~~~~~~~~~~~
+Nome: Petterson
+Curso: Computação
+Matrícula: 1981
+Média: 80.87
+~~~~~~~~~~~~~~~~~~
+Nome: Lucas
+Curso: Telecomunicações
+Matrícula: 1967
+Média: 78.99
